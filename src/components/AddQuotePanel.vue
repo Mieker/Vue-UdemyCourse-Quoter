@@ -3,7 +3,7 @@
     <h2>Quotes Added</h2>
     <div id="statusBar">
         <div id="progresBar">
-            <div id="fillBar">aa</div>
+            <div id="fillBar">{{ quotesNum }} / 10</div>
         </div>
     </div>
     <div id="quoteDivWrapper">
@@ -16,6 +16,7 @@
 
 <script>
 export default {
+    props: ['quotesNum'],
     data() {
         return {
             inputedQuote: ''
@@ -33,17 +34,22 @@ export default {
 <style scoped>
 #statusBar {
     width: 100%;
+    height: 22px;
     border: 1px solid grey;
     background-color: lightgrey;
-    height: 20px;
     border-radius: 5px;
     margin: auto;
+    display: inline-block;
+
 }
 
 #fillBar {
     background-color: cadetblue;
-    width: 100%;
-    height: 100%;
+    margin: 0;
+    padding: 0;
+    border-radius: 5px;
+    height: 20px;
+    font-size: 15px;
 }
 
 h2 {
