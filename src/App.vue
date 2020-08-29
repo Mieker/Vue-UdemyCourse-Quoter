@@ -1,6 +1,6 @@
 <template>
 <div id="app">
-    <appAddQuotePanel @addQuote="addQuote($event)" :quotesNum="quotesNum"></appAddQuotePanel>
+    <appAddQuotePanel @addQuote="addQuote($event)" :quotes="quotes"></appAddQuotePanel>
     <div v-if="quotes.length > 0">
         <appQuote v-for="quote in this.quotes" v-bind:key="quote" :quote=quote @removeQuote="removeQuote($event)"></appQuote>
     </div>
@@ -22,7 +22,6 @@ export default {
     data() {
         return {
             quotes: ['Jest dobrze ale nie najgorzej', 'Idziemy na jakoś'],
-            quotesNum: 1 /* data of counted quotes */
         }
     },
     methods: {
@@ -37,14 +36,7 @@ export default {
             this.quotes.push($event);
         }
     },
-    watch: {
-        quotes() {
-            alert('turu');
-            this.quotesNum = this.quotes.length;
-            /* issue with counting quotes and printing it on status bar */
-        }
-    }
-
+    
 }
 </script>
 

@@ -22,6 +22,7 @@ div {
     border-radius: 5px;
     display: inline-block;
     margin: 10px;
+    cursor: pointer;
 }
 
 p {

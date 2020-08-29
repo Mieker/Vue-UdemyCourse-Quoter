@@ -3,7 +3,7 @@
     <h2>Quotes Added</h2>
     <div id="statusBar">
         <div id="progresBar">
-            <div id="fillBar">{{ quotesNum }} / 10</div>
+            <div id="fillBar">{{ quotes.length }} / 10</div>
         </div>
     </div>
     <div id="quoteDivWrapper">
@@ -16,7 +16,7 @@
 
 <script>
 export default {
-    props: ['quotesNum'],
+    props: ['quotes'],
     data() {
         return {
             inputedQuote: ''
@@ -24,8 +24,16 @@ export default {
     },
     methods: {
         addQuote() {
-            this.$emit('addQuote', this.inputedQuote);
-            this.inputedQuote = '';
+            if (this.inputedQuote == '') {
+                alert('Your quote is empty!')
+            }
+            else if (this.quotes.length < 10) {
+                this.$emit('addQuote', this.inputedQuote);
+                this.inputedQuote = '';
+            }
+            else {
+                alert('The qouotes box is full!')
+            }
         }
     }
 }
