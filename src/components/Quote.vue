@@ -25,10 +25,14 @@ div {
     cursor: pointer;
 }
 
+div:hover {
+    background-color: pink;
+}
+
 p {
-    font-style: italic;
     padding: 10px;
     margin: auto;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: Tangerine;
+    font-size: 35px;
 }
 </style>
