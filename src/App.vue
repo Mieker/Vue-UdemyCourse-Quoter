@@ -1,6 +1,6 @@
 <template>
 <div id="app">
-    <appAddQuotePanel @addQuote="addQuote($event)" :quotes="quotes"></appAddQuotePanel>
+    <appAddQuotePanel @addQuote="addQuote($event)" :quotesNum=quotes.length></appAddQuotePanel>
     <div v-if="quotes.length > 0">
         <appQuote v-for="quote in this.quotes" v-bind:key="quote" :quote=quote @removeQuote="removeQuote($event)"></appQuote>
     </div>
@@ -33,10 +33,22 @@ export default {
             }
         },
         addQuote($event) {
-            this.quotes.push($event);
+            var isQuoteExist = false;
+            for (let i = 0; i < this.quotes.length; i++) {
+                if (this.quotes[i] == $event) {
+                    isQuoteExist = true;
+                }
+            };
+            if (isQuoteExist == true) {
+                alert('This quote already exist!');
+            }
+            else {
+                this.quotes.push($event);
+            }
+
         }
     },
-    
+
 }
 </script>
 
