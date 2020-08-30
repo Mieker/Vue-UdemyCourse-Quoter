@@ -3,7 +3,9 @@
     <h2>Quotes Added</h2>
     <div id="statusBar">
         <div id="progresBar">
-            <div id="fillBar">{{ quotesNum }} / 10</div>
+            <div id="fillBar" :style="{width: quotesNum*10+'%'}">
+                <span v-show="quotesNum > 0">{{ quotesNum }} / 10</span>
+            </div>
         </div>
     </div>
     <div id="quoteDivWrapper">
@@ -26,12 +28,10 @@ export default {
         addQuote() {
             if (this.inputedQuote == '') {
                 alert('Your quote is empty!')
-            }
-            else if (this.quotesNum < 10) {
+            } else if (this.quotesNum < 10) {
                 this.$emit('addQuote', this.inputedQuote);
                 this.inputedQuote = '';
-            }
-            else {
+            } else {
                 alert('The qouotes box is full!')
             }
         }
@@ -58,6 +58,7 @@ export default {
     border-radius: 5px;
     height: 20px;
     font-size: 15px;
+    transition: width 0.5s;
 }
 
 h2 {

@@ -21,7 +21,7 @@ export default {
     },
     data() {
         return {
-            quotes: ['Jest dobrze ale nie najgorzej', 'Idziemy na jakoś'],
+            quotes: ['Example of quote'],
         }
     },
     methods: {
