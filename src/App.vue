@@ -4,7 +4,7 @@
     <div v-if="quotes.length > 0">
         <appQuote v-for="quote in this.quotes" v-bind:key="quote" :quote=quote @removeQuote="removeQuote($event)"></appQuote>
     </div>
-    <appFooter></appFooter>
+    <appFooter id="appFooter"></appFooter>
 </div>
 </template>
 
@@ -41,14 +41,11 @@ export default {
             };
             if (isQuoteExist == true) {
                 alert('This quote already exist!');
-            }
-            else {
+            } else {
                 this.quotes.push($event);
             }
-
         }
     },
-
 }
 </script>
 
@@ -80,5 +77,11 @@ li {
 
 a {
     color: #42b983;
+}
+
+#appFooter {
+    position: absolute;
+    bottom: 10px;
+    width: 90%;
 }
 </style>
